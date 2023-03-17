@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title><meta charset="UTF-8">
+    <title>student-management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            padding: 20px;
+            background: SlateBlue;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+        .navbar-brand:hover {
+            background-color: transparent;
+            color: #f2f2f2;
+        }
+        .header-link {
+            margin: 0 10px;
+            padding: 5px;
+            border: 0px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #f2f2f2;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .header-link:hover {
+            background-color: #f2f2f2;
+            color: #000;
+            text-decoration: None;
+        }
+        .container-fluid {
+            padding: 80px;
+            flex: 1;
+        }
+        .card {
+            padding: 30px;
+            border: none;
+        }
+        .btn {
+            width: 50%;
+            padding: 5px;
+            margin: 0 auto;
+        }
+        .img-container {
+            position: relative;
+            padding: 10px;
+        }
+        .img-text {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .img-link {
+            transition: all 0.3s ease;
+        }
+        .img-container:hover .img-link{
+            transform: scale(1.1);
+        }
+        .img-container:hover .img-text {
+            display: block;
+        }
+        .site-footer {
+            background-color: #f8f8f8;
+            padding: 20px 0;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+        }
+        .site-footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <p class="navbar-brand">
+            Student Management System <sub style="text-weight: bold; font-size: 14px; color: white;">Welcome {{user.username|title}}</sub>
+        </p>
+        <a class="header-link" href="{% url 'student-logout' %}">Logout</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row" style="text-align: center;">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="img-container">
+                        <a href="{% url 'assignments' %}">
+                            <img class="img-link" src="https://img.freepik.com/free-vector/studying-concept-illustration_114360-2274.jpg?w=740&t=st=1678966994~exp=1678967594~hmac=9c132510c30849c93d75fb087c7755a95185110ccf0b50033c2a9da099f2ef7e" width="150" height="150">
+                            <div class="img-text">Assignments</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="img-container">
+                        <a href="{% url 'notes' %}">
+                            <img class="img-link" src="https://img.freepik.com/free-vector/notebook-concept-illustration_114360-387.jpg?w=740&t=st=1679026103~exp=1679026703~hmac=cd74c28a5a16ceb22de4ffcfe4e5bf89b8db5ca2b44c31ccc1be3955959e0659" width="150" height="150">
+                            <div class="img-text">Notes</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="img-container">
+                        <a href="{% url 'events' %}">
+                            <img class="img-link" src="https://img.freepik.com/free-vector/college-university-students-group-young-happy-people-standing-isolated-white-background_575670-66.jpg?w=740&t=st=1678966787~exp=1678967387~hmac=87a8a2a405e5cdeb98e0849db3bcac62adf4b48cb907131ce5de67adbf80de86" width="150" height="150">
+                            <div class="img-text">Events</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Akbarsha. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
